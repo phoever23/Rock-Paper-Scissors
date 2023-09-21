@@ -1,4 +1,6 @@
 const choices = ["Rock", "Paper", "Scissors"]
+let playerScore = 0
+let computerScore = 0
 
 function getComputerChoice() {
     return choices[Math.floor(Math.random() * 3)]
@@ -27,7 +29,19 @@ function playRound(playerSelection, computerSelection) {
 function game() {
     const playerSelection = getPlayerChoice();
     const computerSelection = getComputerChoice();
-    console.log(playRound(playerSelection,computerSelection))
+    const result = playRound(playerSelection,computerSelection)
+    console.log(result)
+
+    if(result.includes("Win")) {
+        playerScore += 1
+    }else if(result.includes("Lose")) {
+        computerScore += 1
+    }
+
+    console.log(`You ${playerScore} : Computer ${computerScore}`)
 }
- 
+
+for (let i = 0; i < 5; i++) {
+    game();    
+}
   
